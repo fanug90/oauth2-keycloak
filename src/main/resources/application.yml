@@ -4,8 +4,8 @@ spring:
       client:
         registration:
           keycloak:
-            client-id: demo-app
-            client-secret: QQznMYdayPQP5TWc9SGv8NzVMWpl659igifGfGyS7Bg5PRLNQ41Zi35WcCny2XaDg2vpE4gQmPvNObNpegBKsT
+            client-id: ${KEYCLOAK_CLIENT_ID:demo-app}
+            client-secret: ${KEYCLOAK_CLIENT_SECRET}
             scope:
               - openid
               - email
@@ -14,5 +14,5 @@ spring:
             redirect-uri: http://localhost:8080/login/oauth2/code/keycloak
         provider:
           keycloak:
-            issuer-uri: http://localhost:8081/realms/demo-realm
+            issuer-uri: ${KEYCLOAK_ISSUER_URI:http://localhost:8081/realms/demo-realm}
             user-name-attribute: preferred_username
